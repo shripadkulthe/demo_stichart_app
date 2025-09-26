@@ -60,7 +60,7 @@ margin-bottom: 12px;
 }
 
 .landing-btn {
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(45deg, #4d1c656c 0%, #8723ec62 100%);
   border: none;
   padding: clamp(12px, 3vw, 18px) clamp(24px, 6vw, 40px);
   font-size: clamp(16px, 4vw, 22px);
