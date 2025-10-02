@@ -43,43 +43,41 @@ const RegisterPage = () => {
   };
 
   const handleRegister = async () => {
-  setErrors({});
+    setErrors({});
 
-  if (validateForm()) {
-    try {
-      const response = await fetch("http://localhost:3000/user/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          shop_name: shopName,
-          email,
-          password,
-        }),
-      });
+    if (validateForm()) {
+      try {
+        const response = await fetch("http://localhost:3000/user/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            shop_name: shopName,
+            email,
+            password,
+          }),
+        });
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (response.ok) {
-        alert(data.message || "User registered successfully!");
-        navigate("/login"); 
-      } else {
-        alert(data.message || "Something went wrong");
+        if (response.ok) {
+          alert(data.message || "User registered successfully!");
+          navigate("/login"); 
+        } else {
+          alert(data.message || "Something went wrong");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Server error, please try again later.");
       }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Server error, please try again later.");
     }
-  }
-};
-
+  };
 
   const handleLogin = () => {
     navigate("/login"); 
   };
 
-  
   const clearError = (field) => {
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: "" }));
@@ -91,7 +89,7 @@ const RegisterPage = () => {
       <div className="register-card">
         <h2>Create Your Shop Account</h2>
 
-        <div className="input-group">
+        <div className="register-input-group">
           <input
             type="text"
             placeholder="Shop Name"
@@ -100,12 +98,12 @@ const RegisterPage = () => {
               setShopName(e.target.value);
               clearError('shopName');
             }}
-            className={errors.shopName ? "error" : ""}
+            className={errors.shopName ? "register-error" : ""}
           />
-          {errors.shopName && <span className="error-message">{errors.shopName}</span>}
+          {errors.shopName && <span className="register-error-message">{errors.shopName}</span>}
         </div>
 
-        <div className="input-group">
+        <div className="register-input-group">
           <input
             type="email"
             placeholder="Email"
@@ -114,13 +112,13 @@ const RegisterPage = () => {
               setEmail(e.target.value);
               clearError('email');
             }}
-            className={errors.email ? "error" : ""}
+            className={errors.email ? "register-error" : ""}
           />
-          {errors.email && <span className="error-message">{errors.email}</span>}
+          {errors.email && <span className="register-error-message">{errors.email}</span>}
         </div>
 
-        <div className="input-group">
-          <div className="password-wrapper">
+        <div className="register-input-group">
+          <div className="register-password-wrapper">
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
@@ -133,17 +131,17 @@ const RegisterPage = () => {
                   clearError('confirmPassword');
                 }
               }}
-              className={errors.password ? "error" : ""}
+              className={errors.password ? "register-error" : ""}
             />
-            <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
+            <span className="register-eye-icon" onClick={() => setShowPassword(!showPassword)}>
               {showPassword ? <FiEyeOff /> : <FiEye />}
             </span>
           </div>
-          {errors.password && <span className="error-message">{errors.password}</span>}
+          {errors.password && <span className="register-error-message">{errors.password}</span>}
         </div>
 
-        <div className="input-group">
-          <div className="password-wrapper">
+        <div className="register-input-group">
+          <div className="register-password-wrapper">
             <input
               type={showConfirm ? "text" : "password"}
               placeholder="Confirm Password"
@@ -156,17 +154,17 @@ const RegisterPage = () => {
                   clearError('confirmPassword');
                 }
               }}
-              className={errors.confirmPassword ? "error" : ""}
+              className={errors.confirmPassword ? "register-error" : ""}
             />
-            <span className="eye-icon" onClick={() => setShowConfirm(!showConfirm)}>
+            <span className="register-eye-icon" onClick={() => setShowConfirm(!showConfirm)}>
               {showConfirm ? <FiEyeOff /> : <FiEye />}
             </span>
           </div>
-          {errors.confirmPassword && <span className="error-message">{errors.confirmPassword}</span>}
+          {errors.confirmPassword && <span className="register-error-message">{errors.confirmPassword}</span>}
         </div>
 
-        <button className="register-btn" onClick={handleRegister}>Register</button>
-        <button className="login-btn" onClick={handleLogin}>Login</button>
+        <button className="register-register-btn" onClick={handleRegister}>Register</button>
+        <button className="register-login-btn" onClick={handleLogin}>Login</button>
       </div>
     </div>
   ); 

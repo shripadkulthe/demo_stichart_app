@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, HttpException, HttpStatus } from '@nestjs/common';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -17,5 +17,21 @@ export class UserController {
     } catch (err) {
       return { message: err.message };
     }
+  }
+  @Post('login')
+  async login(
+    @Body('email') email: string,
+    @Body('password') password: string,
+  ) {
+    const user = await this.usersService.login(email, password);
+
+    if (!user) {
+      throw new HttpException('Invalid email or password', HttpStatus.UNAUTHORIZED);
+    }
+
+    return {
+      message: 'Login successful',
+      user,
+    };
   }
 }

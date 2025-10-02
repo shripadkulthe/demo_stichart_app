@@ -1,4 +1,4 @@
-.register-container {
+.login-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,14 +6,14 @@
   background: 
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     url("/images/register.jpg");
-    background-size: cover;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   font-family: 'Poppins', sans-serif;
   padding: 20px; 
 }
 
-.register-card {
+.login-card {
   background-color: white;
   padding: 40px 30px;
   border-radius: 20px;
@@ -23,20 +23,20 @@
   text-align: center;
 }
 
-.register-card h2 {
+.login-card h2 {
   margin-bottom: 25px;
   color: #333;
   font-size: 1.6rem;
   font-weight: 600;
 }
 
-.register-input-group {
+.login-input-group {
   margin-bottom: 15px;
   width: 100%;
   text-align: left;
 }
 
-.register-card input {
+.login-card input {
   width: 100%;
   padding: 12px;
   margin: 5px 0;
@@ -47,22 +47,22 @@
   box-sizing: border-box;
 }
 
-.register-card input:focus {
+.login-card input:focus {
   border-color: #667eea;
   outline: none;
   box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
 }
 
-.register-card input.register-error {
+.login-card input.login-error {
   border-color: #ff3860;
   box-shadow: 0 0 10px rgba(255, 56, 96, 0.3);
 }
 
-.register-password-wrapper {
+.login-password-wrapper {
   position: relative;
 }
 
-.register-password-wrapper .register-eye-icon {
+.login-password-wrapper .login-eye-icon {
   position: absolute;
   top: 50%;
   right: 12px;
@@ -72,7 +72,7 @@
   font-size: 1.2rem;
 }
 
-.register-error-message {
+.login-error-message {
   color: #ff3860;
   font-size: 12px;
   margin-top: 3px;
@@ -82,11 +82,11 @@
   font-weight: 500;
 }
 
-.register-register-btn,
-.register-login-btn {
+.login-btn,
+.login-register-btn {
   width: 100%;
   padding: 12px;
-  margin-top: 12px;
+  margin-top: 25px;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
@@ -95,62 +95,84 @@
   border: none;
 }
 
-.register-register-btn {
+.login-btn {
   background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
   color: white;
 }
 
-.register-register-btn:hover {
+.login-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 15px rgba(102, 126, 234, 0.6), 
               0 0 25px rgba(118, 75, 162, 0.5);
 }
 
-.register-login-btn {
+.login-register-btn {
   border: 2px solid #764ba2;
   background: white;
   color: #764ba2;
 }
 
-.register-login-btn:hover {
+.login-register-btn:hover {
   background: #764ba2;
   color: white;
 }
 
+.login-register-link {
+  margin-top: 20px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.login-register-link span {
+  color: #764ba2;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.login-register-link span:hover {
+  color: #667eea;
+}
+
 @media (max-width: 480px) {
-  .register-card {
+  .login-card {
     width: 100%;
     padding: 25px 20px;
     border-radius: 15px;
   }
 
-  .register-card h2 {
+  .login-card h2 {
     font-size: 1.4rem;
     margin-bottom: 20px;
   }
 
-  .register-card input {
+  .login-card input {
     padding: 10px;
     font-size: 0.9rem;
   }
 
-  .register-register-btn,
-  .register-login-btn {
+  .login-btn,
+  .login-register-btn {
     font-size: 0.9rem;
     padding: 10px;
   }
 
-  .register-password-wrapper .register-eye-icon {
+  .login-password-wrapper .login-eye-icon {
     font-size: 1rem;
   }
 
-  .register-error-message {
+  .login-error-message {
     font-size: 11px;
+  }
+
+  .login-register-link {
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 768px) {
-  .register-card {
+  .login-card {
     width: 80%;
     padding: 30px 25px;
   }
